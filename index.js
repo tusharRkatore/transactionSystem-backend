@@ -1,3 +1,4 @@
+require('dotenv').config();
 const cors = require("cors");
 const express = require("express");
 const app = express();
@@ -9,7 +10,7 @@ const statRoute = require("./routes/fetch-statistics");
 const priceRoute = require("./routes/price-range-statistics");
 const categoryRoute = require("./routes/category-distribution");
 const transactionRoute = require("./routes/combine-data-route");
-
+const PORT=process.env.PORT
 const corsOptions = {
   origin: "http://localhost:3000",
   methods: "POST,GET,PUT,DELETE,PATCH,HEAD",
@@ -34,7 +35,7 @@ connection()
     console.log(err);
   });
 
-app.listen(5008, () => {
+app.listen(PORT, () => {
   console.log("You have created server successfully");
 }); 
 

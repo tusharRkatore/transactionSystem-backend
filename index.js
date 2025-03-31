@@ -10,10 +10,10 @@ const priceRoute = require("./routes/price-range-statistics");
 const categoryRoute = require("./routes/category-distribution");
 const transactionRoute = require("./routes/combine-data-route");
 
-const PORT = process.env.PORT || 5000; // Use Render's assigned PORT
+const PORT = process.env.PORT || 10000; // Use Render’s assigned port
 
 const corsOptions = {
-  origin: process.env.CLIENT_URL || "http://localhost:3000", // Use correct frontend URL
+  origin: process.env.CLIENT_URL || "http://localhost:3000", // Change this for deployment
   methods: "POST,GET,PUT,DELETE,PATCH,HEAD",
   credentials: true,
   optionsSuccessStatus: 200,
@@ -22,7 +22,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// Use Routes
+// Routes
 app.use("/", router);
 app.use("/", allTransactionRoute);
 app.use("/", statRoute);
